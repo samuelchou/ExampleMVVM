@@ -21,11 +21,12 @@ public class ActivityMain extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        binding.setViewModel(exampleViewModel);
 
         binding.btnRefresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                binding.txtHelloWord.setText("HELLO THERE");
+//                binding.txtHelloWord.setText("HELLO THERE");
                 exampleViewModel.refresh();
             }
         });
