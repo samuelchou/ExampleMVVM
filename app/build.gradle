@@ -21,8 +21,8 @@ android {
     }
 
     // Data Binding 專門項。
-    dataBinding {
-        enabled = true
+    buildFeatures {
+        dataBinding true
     }
 }
 
