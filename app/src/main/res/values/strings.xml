@@ -2,4 +2,7 @@
     <string name="app_name">ExampleMVVM</string>
 
     <string name="name_user_default">STC</string>
+
+    <string name="msg_greetings_with_name">Hello, %1$s</string>
+    <string name="msg_greetings">Hello! (Try key in your name and refresh again)</string>
 </resources>

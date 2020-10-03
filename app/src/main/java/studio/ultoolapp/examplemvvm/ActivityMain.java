@@ -14,13 +14,20 @@ public class ActivityMain extends AppCompatActivity {
     private ActivityMainBinding binding;
 
     // View Model
-    private ExampleViewModel exampleViewModel = new ExampleViewModel();
+    private ExampleViewModel exampleViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        exampleViewModel = new ExampleViewModel(this);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.setViewModel(exampleViewModel);
         exampleViewModel.setName(getString(R.string.name_user_default));
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        exampleViewModel = null;
     }
 }

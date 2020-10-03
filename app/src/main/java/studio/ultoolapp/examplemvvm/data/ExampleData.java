@@ -13,7 +13,7 @@ public class ExampleData {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                callback.onDataReady("Hello, " + name);
+                callback.onDataReady(name);
             }
         }, 3000);
     }
