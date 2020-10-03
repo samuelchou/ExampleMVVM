@@ -9,7 +9,7 @@ import androidx.databinding.DataBindingUtil;
 import studio.ultoolapp.examplemvvm.databinding.ActivityMainBinding;
 import studio.ultoolapp.examplemvvm.viewmodel.ExampleViewModel;
 
-public class MainActivity extends AppCompatActivity {
+public class ActivityMain extends AppCompatActivity {
 
     // Data Binding
     private ActivityMainBinding binding;
