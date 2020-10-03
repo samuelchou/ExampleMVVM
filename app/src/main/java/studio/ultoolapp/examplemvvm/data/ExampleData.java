@@ -7,7 +7,7 @@ import android.os.Handler;
  * 參見： https://ithelp.ithome.com.tw/articles/10192829
  */
 public class ExampleData {
-    public String name = "Your name";
+    public String name;
 
     public void retrieveData(final OnDataReadyCallback callback) {
         new Handler().postDelayed(new Runnable() {

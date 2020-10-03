@@ -21,5 +21,6 @@ public class ActivityMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.setViewModel(exampleViewModel);
+        exampleViewModel.setName(getString(R.string.name_user_default));
     }
 }
