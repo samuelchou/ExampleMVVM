@@ -1,7 +1,6 @@
 package studio.ultoolapp.examplemvvm;
 
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -22,13 +21,5 @@ public class ActivityMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.setViewModel(exampleViewModel);
-
-        binding.btnRefresh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                binding.txtHelloWord.setText("HELLO THERE");
-                exampleViewModel.refresh();
-            }
-        });
     }
 }
