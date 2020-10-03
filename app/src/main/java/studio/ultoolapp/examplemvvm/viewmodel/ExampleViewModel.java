@@ -1,5 +1,8 @@
 package studio.ultoolapp.examplemvvm.viewmodel;
 
+import androidx.databinding.ObservableBoolean;
+import androidx.databinding.ObservableField;
+
 import studio.ultoolapp.examplemvvm.data.ExampleData;
 
 /**
@@ -9,11 +12,15 @@ import studio.ultoolapp.examplemvvm.data.ExampleData;
 public class ExampleViewModel {
     private ExampleData exampleData = new ExampleData();
 
+    public final ObservableField<String> mData = new ObservableField<>();
+    public final ObservableBoolean isLoading = new ObservableBoolean(false);
+
     public void refresh() {
         exampleData.retrieveData(new ExampleData.OnDataReadyCallback() {
             @Override
             public void onDataReady(String data) {
-                // TODO: 2020/9/28 設定View的資訊
+                mData.set(data);
+                isLoading.set(false);
             }
         });
     }
