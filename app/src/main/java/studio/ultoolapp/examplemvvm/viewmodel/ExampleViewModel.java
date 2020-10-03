@@ -16,6 +16,7 @@ public class ExampleViewModel {
     public final ObservableBoolean isLoading = new ObservableBoolean(false);
 
     public void refresh() {
+        isLoading.set(true);
         exampleData.retrieveData(new ExampleData.OnDataReadyCallback() {
             @Override
             public void onDataReady(String data) {

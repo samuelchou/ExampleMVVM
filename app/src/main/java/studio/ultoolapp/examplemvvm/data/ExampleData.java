@@ -13,7 +13,7 @@ public class ExampleData {
             public void run() {
                 callback.onDataReady("New Data");
             }
-        }, 1500);
+        }, 3000);
     }
 
     public interface OnDataReadyCallback {
