@@ -5,4 +5,8 @@ public class ExItem {
     public int id;
     public String title;
     public String imageUrl;
+
+    public ExItem(String title) {
+        this.title = title;
+    }
 }
