@@ -10,7 +10,7 @@ import androidx.databinding.ObservableBoolean;
 import androidx.databinding.ObservableField;
 
 import studio.ultoolapp.examplemvvm.R;
-import studio.ultoolapp.examplemvvm.data.ExampleData;
+import studio.ultoolapp.examplemvvm.data.ExampleModel;
 import studio.ultoolapp.examplemvvm.view.ActivityList;
 
 /**
@@ -18,7 +18,7 @@ import studio.ultoolapp.examplemvvm.view.ActivityList;
  * 參見： https://ithelp.ithome.com.tw/articles/10192829
  */
 public class ExampleViewModel extends BaseObservable {
-    private ExampleData exampleData = new ExampleData();
+    private ExampleModel exampleModel = new ExampleModel();
 
     public final ObservableField<String> mData = new ObservableField<>();
     public final ObservableBoolean isLoading = new ObservableBoolean(false);
@@ -31,7 +31,7 @@ public class ExampleViewModel extends BaseObservable {
 
     public void refresh() {
         isLoading.set(true);
-        exampleData.retrieveData(new ExampleData.OnDataReadyCallback() {
+        exampleModel.retrieveData(new ExampleModel.OnDataReadyCallback() {
             @Override
             public void onDataReady(String data) {
                 String greetings;
@@ -52,11 +52,11 @@ public class ExampleViewModel extends BaseObservable {
 
     @Bindable
     public void setName(CharSequence charSequence) {
-        exampleData.name = charSequence.toString();
+        exampleModel.name = charSequence.toString();
     }
 
     public CharSequence getName() {
-        return exampleData.name;
+        return exampleModel.name;
     }
 
 }

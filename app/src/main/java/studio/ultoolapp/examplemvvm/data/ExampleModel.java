@@ -6,7 +6,7 @@ import android.os.Handler;
  * 一個簡單的Data Model.
  * 參見： https://ithelp.ithome.com.tw/articles/10192829
  */
-public class ExampleData {
+public class ExampleModel {
     public String name;
 
     public void retrieveData(final OnDataReadyCallback callback) {
