@@ -1,6 +1,8 @@
 package studio.ultoolapp.examplemvvm.viewmodel;
 
 import android.content.Context;
+import android.content.Intent;
+import android.view.View;
 
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
@@ -9,6 +11,7 @@ import androidx.databinding.ObservableField;
 
 import studio.ultoolapp.examplemvvm.R;
 import studio.ultoolapp.examplemvvm.data.ExampleData;
+import studio.ultoolapp.examplemvvm.view.ActivityList;
 
 /**
  * 一個簡單的View Model.
@@ -39,6 +42,12 @@ public class ExampleViewModel extends BaseObservable {
                 isLoading.set(false);
             }
         });
+    }
+
+    public void StartListActivity(View view) {
+        Context context = view.getContext();
+        Intent intent = new Intent(context, ActivityList.class);
+        context.startActivity(intent);
     }
 
     @Bindable

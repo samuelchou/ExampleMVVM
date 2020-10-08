@@ -15,7 +15,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ActivityMain">
+        tools:context=".view.ActivityMain">
 
         <Button
             android:id="@+id/btnRefresh"
@@ -61,6 +61,17 @@
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/btnRefresh" />
+
+        <Button
+            android:id="@+id/btnOpenList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Open List"
+            android:onClick="@{(v) -> viewModel.StartListActivity(v)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnRefresh" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
