@@ -1,23 +1,29 @@
 package studio.ultoolapp.examplemvvm.view;
 
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import studio.ultoolapp.examplemvvm.R;
+import studio.ultoolapp.examplemvvm.databinding.ActivityListBinding;
+import studio.ultoolapp.examplemvvm.viewmodel.ListViewModel;
 
 public class ActivityList extends AppCompatActivity {
+    private ActivityListBinding binding;
+    private ListViewModel listViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list);
-        findViewById(android.R.id.content).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+        listViewModel = new ListViewModel(this);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_list);
+        binding.setListModel(listViewModel);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        listViewModel = null;
     }
 }
