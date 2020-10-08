@@ -1,10 +1,11 @@
-package studio.ultoolapp.examplemvvm;
+package studio.ultoolapp.examplemvvm.view;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import studio.ultoolapp.examplemvvm.R;
 import studio.ultoolapp.examplemvvm.databinding.ActivityMainBinding;
 import studio.ultoolapp.examplemvvm.viewmodel.ExampleViewModel;
 
