@@ -2,27 +2,37 @@ package studio.ultoolapp.examplemvvm.viewmodel;
 
 import android.app.Activity;
 
-import java.util.ArrayList;
+import androidx.lifecycle.MutableLiveData;
+
 import java.util.List;
 
 import studio.ultoolapp.examplemvvm.data.ExItem;
+import studio.ultoolapp.examplemvvm.data.ExItemBrowser;
 
 public class ListViewModel {
     private Activity activity;
-    private List<ExItem> items = new ArrayList<>();
+    private final MutableLiveData<List<ExItem>> items = new MutableLiveData<>();
+    private ExItemBrowser itemBrowser;
 
     public ListViewModel(Activity activity) {
         this.activity = activity;
-        for (int i = 0; i < 30; i++) {
-            items.add(new ExItem("Item " + i));
-        }
+        itemBrowser = new ExItemBrowser();
     }
 
     public void FinishActivity() {
         activity.finish();
     }
 
-    public List<ExItem> getItems() {
+    public MutableLiveData<List<ExItem>> getItems() {
         return items;
+    }
+
+    public void FetchItems() {
+        itemBrowser.FetchData(new ExItemBrowser.OnPrepareListener() {
+            @Override
+            public void OnSuccess(List<ExItem> result) {
+                items.setValue(result);
+            }
+        });
     }
 }
