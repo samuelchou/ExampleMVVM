@@ -5,4 +5,5 @@
 
     <string name="msg_greetings_with_name">Hello, %1$s</string>
     <string name="msg_greetings">Hello! (Try key in your name and refresh again)</string>
+    <string name="action_refresh">Refresh</string>
 </resources>
