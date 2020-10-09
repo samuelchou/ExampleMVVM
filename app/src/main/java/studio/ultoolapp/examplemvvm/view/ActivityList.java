@@ -4,9 +4,14 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import studio.ultoolapp.examplemvvm.R;
+import studio.ultoolapp.examplemvvm.data.ExItem;
 import studio.ultoolapp.examplemvvm.databinding.ActivityListBinding;
 import studio.ultoolapp.examplemvvm.viewmodel.ItemAdapter;
 import studio.ultoolapp.examplemvvm.viewmodel.ListViewModel;
@@ -23,9 +28,20 @@ public class ActivityList extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_list);
         binding.setListModel(listViewModel);
 
-        itemAdapter = new ItemAdapter(listViewModel.getItems());
+        itemAdapter = new ItemAdapter(new ArrayList<ExItem>());
+        // 觀察模式：綁定adapter(View) 與View Model
+        listViewModel.getItems().observe(this, new Observer<List<ExItem>>() {
+            @Override
+            public void onChanged(List<ExItem> items) {
+                itemAdapter.updateList(items);
+            }
+        });
+
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         binding.recyclerView.setAdapter(itemAdapter);
+
+        // 更新資料
+        listViewModel.FetchItems();
     }
 
     @Override
